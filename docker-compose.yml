@@ -1,0 +1,73 @@
+# ============================================================
+# TTMS 票务管理系统 - Docker Compose 部署
+# 三服务架构：MySQL + Spring Boot 后端 + Nginx 前端
+# ============================================================
+
+version: "3.8"
+
+services:
+  # ---- MySQL 数据库 ----
+  mysql:
+    image: mysql:8.0
+    container_name: ttms-mysql
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: ttms
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --init-connect=SET NAMES utf8mb4
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p12345678"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - ttms-net
+
+  # ---- 后端（Spring Boot，JDK 17）----
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ttms-backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      TZ: Asia/Shanghai
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8080:8080"
+    networks:
+      - ttms-net
+
+  # ---- 前端（Vue3 + Nginx）----
+  frontend:
+    build:
+      context: ./TTMS_vue3_web
+      dockerfile: Dockerfile
+    container_name: ttms-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - ttms-net
+
+volumes:
+  mysql_data:
+
+networks:
+  ttms-net:
+    driver: bridge

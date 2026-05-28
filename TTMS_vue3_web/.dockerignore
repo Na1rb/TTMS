@@ -1,0 +1,46 @@
+# ============================================================
+# TTMS 前端 Docker 忽略文件
+# 防止 Windows 本地文件污染 Linux 构建环境
+# ============================================================
+
+# 依赖
+node_modules
+package-lock.json
+
+# 构建产物
+dist
+.vite
+
+# IDE / 编辑器
+.vscode
+.idea
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# 文档
+*.md
+README*
+AUTHORS*
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# 日志
+*.log
+npm-debug.log*
+
+# 测试
+__tests__
+test

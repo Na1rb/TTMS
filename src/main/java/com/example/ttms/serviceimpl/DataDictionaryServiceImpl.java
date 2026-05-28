@@ -1,0 +1,97 @@
+package com.example.ttms.serviceimpl;
+
+import com.example.ttms.dao.DataDictionaryDAO;
+import com.example.ttms.model.DataDictionary;
+import com.example.ttms.service.DataDictionaryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service("DataDictionaryService")
+public class DataDictionaryServiceImpl implements DataDictionaryService {
+
+    @Autowired
+    private DataDictionaryDAO data_dictDAO;
+
+
+    //根据ParentId获取下一个规则的下标
+    @Override
+    public Integer getNextIndexByParentID(Integer id){
+        // 当前目录下如果还没有子项，MAX 会返回 null，需要从 1 开始
+        Integer maxIndex = data_dictDAO.getNextIndexByParentID(id);
+        return maxIndex == null ? 1 : maxIndex + 1;
+    }
+
+    //根据id获取数据字典信息
+    @Override
+    public DataDictionary selectDataDictionaryById(Integer id) {
+        return data_dictDAO.selectDataDictionaryById(id);
+    }
+
+    //根据名称获取数据字典信息
+    @Override
+    public DataDictionary selectDataDictionaryByName(String name){
+        return data_dictDAO.selectDataDictionaryByName(name);
+    }
+
+    //根据关键字获取匹配所有规则的信息
+    @Override
+    public List<DataDictionary> getAllDataDcitByPartName(String name){
+        return data_dictDAO.getAllDataDcitByPartName("%"+name+"%");
+    }
+
+    //根据父id获取数据字典信息
+    @Override
+    public List<DataDictionary> selectDataDictionaryByParentId(Integer parentId){
+        return data_dictDAO.selectDataDictionaryByParentId(parentId);
+    }
+
+    //根据名称获取子类型数据字典
+    @Override
+    public List<DataDictionary> selectSonDataDictionaryByName(String name){
+        return data_dictDAO.selectSonDataDictionaryByName(name);
+    }
+
+    //新增数据字典
+    @Override
+    public boolean addDataDictionary(DataDictionary data_dict){
+        if(data_dictDAO.selectDataDictionaryByName(data_dict.getDict_name())==null){
+            data_dictDAO.addDataDictionary(data_dict);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    //删除数据字典
+    @Override
+    public boolean deleteDataDictionaryById(Integer id){
+        List<DataDictionary> dataDictionaries = data_dictDAO.selectDataDictionaryByParentId(id);
+        if(dataDictionaries == null || dataDictionaries.size() == 0 ){
+            data_dictDAO.deleteDataDictionaryById(id);
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    //更新数据字典
+    @Override
+    public boolean updateDataDictionaryById(DataDictionary data_dict){
+        DataDictionary data_dict_old = data_dictDAO.selectDataDictionaryById(data_dict.getDict_id());
+        if(data_dict_old==null){
+            return false;
+        }
+
+        //名称没有改变或者新名称可用
+        if(data_dict_old.getDict_name().equals(data_dict.getDict_name())||data_dictDAO.selectDataDictionaryByName(data_dict.getDict_name())==null){
+            data_dictDAO.updateDataDictionaryById(data_dict);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}

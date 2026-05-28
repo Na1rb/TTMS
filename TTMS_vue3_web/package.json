@@ -1,0 +1,29 @@
+{
+  "name": "ttms-vue3-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TTMS 票务管理系统 - Vue3 B/S 前端",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@iconify/vue": "^4.1.2",
+    "axios": "^1.6.8",
+    "echarts": "^5.5.0",
+    "pinia": "^2.1.7",
+    "radix-vue": "^1.9.17",
+    "swiper": "^11.1.4",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.0"
+  }
+}

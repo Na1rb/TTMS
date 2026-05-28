@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(168, 85, 247, 0.18), transparent 24%),
+    radial-gradient(circle at bottom center, rgba(244, 63, 94, 0.12), transparent 30%),
+    #020617;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  color: #e2e8f0;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(34, 211, 238, 0.1), transparent 18%),
+    radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.08), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.12), transparent 28%),
+    linear-gradient(180deg, #020617 0%, #081120 42%, #020617 100%);
+}
+
+#app {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid rgba(15, 23, 42, 0.7);
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.8), rgba(124, 58, 237, 0.8));
+}
+
+.cinema-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.cinema-shell::before,
+.cinema-shell::after {
+  content: '';
+  position: fixed;
+  inset: auto;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(70px);
+}
+
+.cinema-shell::before {
+  top: 88px;
+  left: 18px;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.12);
+}
+
+.cinema-shell::after {
+  right: 6%;
+  bottom: 8%;
+  width: 360px;
+  height: 360px;
+  border-radius: 999px;
+  background: rgba(168, 85, 247, 0.12);
+}
+
+.cinema-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.poster-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.poster-shine::after {
+  content: '';
+  position: absolute;
+  inset: -120% auto auto -40%;
+  width: 40%;
+  height: 300%;
+  transform: rotate(24deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transition: transform 0.8s ease;
+}
+
+.poster-shine:hover::after {
+  transform: rotate(24deg) translateX(260%);
+}
+
+.glow-title {
+  text-shadow: 0 0 18px rgba(34, 211, 238, 0.12), 0 0 36px rgba(168, 85, 247, 0.1);
+}
+
+.ticket-cut {
+  position: relative;
+}
+
+.ticket-cut::before,
+.ticket-cut::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  background: #020617;
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.12);
+}
+
+.ticket-cut::before {
+  left: -11px;
+}
+
+.ticket-cut::after {
+  right: -11px;
+}
+
+@keyframes posterPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.poster-pulse {
+  animation: posterPulse 7s ease-in-out infinite;
+}
+
+@keyframes loginPulseDot {
+  0%, 100% { transform: scale(1); opacity: 0.78; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+
+.login-pulse-dot {
+  animation: loginPulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes loginOrbitSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes loginOrbitSpinReverse {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+.login-orbit-ring {
+  animation: loginOrbitSpin 16s linear infinite;
+}
+
+.login-orbit-ring-slow {
+  animation: loginOrbitSpinReverse 22s linear infinite;
+}
+
+@keyframes loginFloatA {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -12px, 0); }
+}
+
+@keyframes loginFloatB {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(8px, -10px, 0); }
+}
+
+@keyframes loginFloatC {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-8px, -10px, 0); }
+}
+
+.login-float-a {
+  animation: loginFloatA 5s ease-in-out infinite;
+}
+
+.login-float-b {
+  animation: loginFloatB 6s ease-in-out infinite;
+}
+
+.login-float-c {
+  animation: loginFloatC 5.5s ease-in-out infinite;
+}
+
+@keyframes loginFloatCardA {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-4px, -10px, 0); }
+}
+
+@keyframes loginFloatCardB {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(4px, -10px, 0); }
+}
+
+@keyframes loginFloatCardC {
+  0%, 100% { transform: translate3d(-50%, 0, 0); }
+  50% { transform: translate3d(-50%, -12px, 0); }
+}
+
+.login-float-card-a {
+  animation: loginFloatCardA 6.4s ease-in-out infinite;
+}
+
+.login-float-card-b {
+  animation: loginFloatCardB 6.8s ease-in-out infinite;
+}
+
+.login-float-card-c {
+  animation: loginFloatCardC 7s ease-in-out infinite;
+}
+
+/* ===== 功能卡片波浪浮动动画 ===== */
+@keyframes waveFloat {
+  0%, 100% { transform: translateY(0); }
+  25%  { transform: translateY(-6px); }
+  75%  { transform: translateY(2px); }
+}
+
+.wave-card {
+  animation: waveFloat 3.2s ease-in-out infinite;
+}
+
+.wave-card-1 { animation-delay: 0s; }
+.wave-card-2 { animation-delay: 0.35s; }
+.wave-card-3 { animation-delay: 0.7s; }
+
+/* hover 时暂停浮动，优先展示 hover 效果 */
+.wave-card:hover {
+  animation-play-state: paused;
+  transform: translateY(-4px) !important;
+}
+
+/* ===== 柱状图持续呼吸动画 ===== */
+@keyframes barBreathe1 {
+  0%, 100% { height: 52px; }
+  50%      { height: 66px; }
+}
+
+@keyframes barBreathe2 {
+  0%, 100% { height: 38px; }
+  50%      { height: 52px; }
+}
+
+@keyframes barBreathe3 {
+  0%, 100% { height: 78px; }
+  50%      { height: 92px; }
+}
+
+@keyframes barBreathe4 {
+  0%, 100% { height: 48px; }
+  50%      { height: 60px; }
+}
+
+@keyframes barBreathe5 {
+  0%, 100% { height: 62px; }
+  50%      { height: 74px; }
+}
+
+@keyframes barBreathe6 {
+  0%, 100% { height: 55px; }
+  50%      { height: 68px; }
+}
+
+@keyframes barBreathe7 {
+  0%, 100% { height: 88px; }
+  50%      { height: 96px; }
+}
+
+.bar-live {
+  animation-duration: 2.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.bar-live-1 { animation-name: barBreathe1; animation-delay: 0s; }
+.bar-live-2 { animation-name: barBreathe2; animation-delay: 0.18s; }
+.bar-live-3 { animation-name: barBreathe3; animation-delay: 0.36s; }
+.bar-live-4 { animation-name: barBreathe4; animation-delay: 0.54s; }
+.bar-live-5 { animation-name: barBreathe5; animation-delay: 0.72s; }
+.bar-live-6 { animation-name: barBreathe6; animation-delay: 0.90s; }
+.bar-live-7 { animation-name: barBreathe7; animation-delay: 1.08s; }
+
+/* ===== 扫描线动画 ===== */
+@keyframes scanLine {
+  0%   { top: 0; }
+  100% { top: 100%; }
+}
+
+.animate-scan {
+  animation: scanLine 2.8s linear infinite;
+}
+
+/* ===== 右侧滑出面板过渡 ===== */
+.panel-slide-enter-active,
+.panel-slide-leave-active {
+  transition: opacity 0.3s ease;
+}
+.panel-slide-enter-active > div:last-child,
+.panel-slide-leave-active > div:last-child {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.panel-slide-enter-from {
+  opacity: 0;
+}
+.panel-slide-enter-from > div:last-child {
+  transform: translateX(100%);
+}
+.panel-slide-leave-to {
+  opacity: 0;
+}
+.panel-slide-leave-to > div:last-child {
+  transform: translateX(100%);
+}
+
+/* ===== 登录页用户下拉列表过渡 ===== */
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.96);
+}

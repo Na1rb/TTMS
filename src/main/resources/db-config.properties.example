@@ -1,0 +1,5 @@
+# 数据库配置示例：复制为 db-config.properties 后按本地环境修改
+jdbc.url=jdbc:mysql://127.0.0.1:3306/ttms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+jdbc.username=root
+jdbc.password=123456
+jdbc.driverClassName=com.mysql.cj.jdbc.Driver
