@@ -184,40 +184,40 @@
           <div class="mt-7 border-t border-slate-200 pt-6">
             <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">制作小组</p>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-              <!-- XYM · 组长（后端） -->
+              <!-- XXX · 组长（后端） -->
               <div class="group relative cursor-default rounded-xl border border-sky-200/70 bg-sky-50/80 p-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:bg-sky-50 hover:shadow-md hover:shadow-sky-100/60">
                 <div class="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-sky-400 to-blue-500 text-[10px] font-bold text-white shadow-sm shadow-sky-200/50">组长</div>
-                <p class="text-sm font-bold text-slate-700">XYM</p>
+                <p class="text-sm font-bold text-slate-700">XXX</p>
 
               </div>
-              <!-- NZX · 数据库 -->
+              <!-- XXX · 数据库 -->
               <div class="group relative cursor-default rounded-xl border border-emerald-200/70 bg-emerald-50/80 p-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-50 hover:shadow-md hover:shadow-emerald-100/60">
                 <div class="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-[10px] font-bold text-white shadow-sm shadow-emerald-200/50">组员</div>
-                <p class="text-sm font-bold text-slate-700">NZX</p>
+                <p class="text-sm font-bold text-slate-700">XXX</p>
 
               </div>
-              <!-- LX · 前端核心 -->
+              <!-- XXX · 前端核心 -->
               <div class="group relative cursor-default rounded-xl border border-violet-200/70 bg-violet-50/80 p-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-300 hover:bg-violet-50 hover:shadow-md hover:shadow-violet-100/60">
                 <div class="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-violet-400 to-purple-500 text-[10px] font-bold text-white shadow-sm shadow-violet-200/50">组员</div>
-                <p class="text-sm font-bold text-slate-700">LX</p>
+                <p class="text-sm font-bold text-slate-700">XXX</p>
 
               </div>
-              <!-- FW · 前端管理 -->
+              <!-- XXX · 前端管理 -->
               <div class="group relative cursor-default rounded-xl border border-amber-200/70 bg-amber-50/80 p-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-300 hover:bg-amber-50 hover:shadow-md hover:shadow-amber-100/60">
                 <div class="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-[10px] font-bold text-white shadow-sm shadow-amber-200/50">组员</div>
-                <p class="text-sm font-bold text-slate-700">FW</p>
+                <p class="text-sm font-bold text-slate-700">XXX</p>
 
               </div>
-              <!-- WSY · 前端数据 -->
+              <!-- XXX · 前端数据 -->
               <div class="group relative cursor-default rounded-xl border border-rose-200/70 bg-rose-50/80 p-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-rose-300 hover:bg-rose-50 hover:shadow-md hover:shadow-rose-100/60">
                 <div class="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-rose-400 to-pink-500 text-[10px] font-bold text-white shadow-sm shadow-rose-200/50">组员</div>
-                <p class="text-sm font-bold text-slate-700">WSY</p>
+                <p class="text-sm font-bold text-slate-700">XXX</p>
 
               </div>
-              <!-- LK · 文档配置 -->
+              <!-- XXX · 文档配置 -->
               <div class="group relative cursor-default rounded-xl border border-indigo-200/70 bg-indigo-50/80 p-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-indigo-50 hover:shadow-md hover:shadow-indigo-100/60">
                 <div class="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-indigo-400 to-blue-500 text-[10px] font-bold text-white shadow-sm shadow-indigo-200/50">组员</div>
-                <p class="text-sm font-bold text-slate-700">LK</p>
+                <p class="text-sm font-bold text-slate-700">XXX</p>
 
               </div>
             </div>
